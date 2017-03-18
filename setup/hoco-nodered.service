@@ -1,0 +1,18 @@
+[Unit]
+Description=HoCo Logic NodeRed
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/hoco/logic/nodered
+Nice=5
+ExecStart=/usr/bin/env node-red-pi --max-old-space-size=128
+KillSignal=SIGINT
+Restart=always
+StandardOutput=syslog
+SyslogIdentifier=hoco-nodered
+User=hoco
+Group=hoco
+
+[Install]
+WantedBy=multi-user.target
