@@ -1,7 +1,9 @@
 #!/bin/bash
 cd "${0%/*}"
 . ${HOCO_HOME}/data/config.sh
-sudo apt-get install -y build-essential python-rpi.gpio
+
+sudo systemctl stop hoco-nodered.service
+
 sudo npm i -g --unsafe-perm --no-progress node-red
 sudo npm i -g node-red-contrib-influxdb
 
